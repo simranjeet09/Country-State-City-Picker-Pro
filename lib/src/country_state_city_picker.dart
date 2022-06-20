@@ -15,8 +15,9 @@ class CountryStateCityPicker extends StatefulWidget {
   InputDecoration? cityInputDecoration;
   InputDecoration? searchInputDecoration;
   Color? dialogBGColor;
+  Color? dialogTXTColor;
 
-  CountryStateCityPicker({required this.country, required this.state, required this.city, this.textFieldInputBorder,this.countryInputDecoration,this.stateInputDecoration,this.cityInputDecoration,this.searchInputDecoration,this.dialogBGColor});
+  CountryStateCityPicker({required this.country, required this.state, required this.city, this.textFieldInputBorder,this.countryInputDecoration,this.stateInputDecoration,this.cityInputDecoration,this.searchInputDecoration,this.dialogBGColor,this.dialogTXTColor});
 
   @override
   _CountryStateCityPickerState createState() => _CountryStateCityPickerState();
@@ -172,7 +173,7 @@ class _CountryStateCityPickerState extends State<CountryStateCityPicker> {
                   child: Column(
                     children: [
                       SizedBox(height: 10),
-                      Text(_title,style: TextStyle(color:Colors.grey.shade800,
+                      Text(_title,style: TextStyle(color:widget.dialogTXTColor,
                           fontSize: 17,fontWeight: FontWeight.w500)),
                       SizedBox(height: 10),
                       ///Text Field
@@ -199,7 +200,7 @@ class _CountryStateCityPickerState extends State<CountryStateCityPicker> {
                           });
                         },
                         style: TextStyle(
-                            color: Colors.grey.shade800,
+                            color: widget.dialogTXTColor,
                             fontSize: 16.0
                         ),
                         decoration: (widget.countryInputDecoration!=null)?widget.searchInputDecoration:InputDecoration(
@@ -256,7 +257,7 @@ class _CountryStateCityPickerState extends State<CountryStateCityPicker> {
                                           ? _stateSubList[index].name
                                           :_citySubList[index].name,
                                       style: TextStyle(
-                                          color: Colors.grey.shade800,
+                                          color: widget.dialogTXTColor,
                                           fontSize: 16.0
                                       )),
                                 ),
