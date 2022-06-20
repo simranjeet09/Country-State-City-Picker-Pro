@@ -173,7 +173,7 @@ class _CountryStateCityPickerState extends State<CountryStateCityPicker> {
                   child: Column(
                     children: [
                       SizedBox(height: 10),
-                      Text(_title,style: TextStyle(color:widget.dialogTXTColor,
+                      Text(_title,style: TextStyle(color:widget.dialogTXTColor??Colors.grey.shade800,
                           fontSize: 17,fontWeight: FontWeight.w500)),
                       SizedBox(height: 10),
                       ///Text Field
@@ -200,7 +200,7 @@ class _CountryStateCityPickerState extends State<CountryStateCityPicker> {
                           });
                         },
                         style: TextStyle(
-                            color: widget.dialogTXTColor,
+                            color: widget.dialogTXTColor??Colors.grey.shade800,
                             fontSize: 16.0
                         ),
                         decoration: (widget.countryInputDecoration!=null)?widget.searchInputDecoration:InputDecoration(
@@ -257,7 +257,7 @@ class _CountryStateCityPickerState extends State<CountryStateCityPicker> {
                                           ? _stateSubList[index].name
                                           :_citySubList[index].name,
                                       style: TextStyle(
-                                          color: widget.dialogTXTColor,
+                                          color: widget.dialogTXTColor??Colors.grey.shade800,
                                           fontSize: 16.0
                                       )),
                                 ),
