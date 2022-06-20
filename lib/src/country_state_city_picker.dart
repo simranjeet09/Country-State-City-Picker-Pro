@@ -10,8 +10,13 @@ class CountryStateCityPicker extends StatefulWidget {
   TextEditingController state;
   TextEditingController city;
   InputBorder? textFieldInputBorder;
+  InputDecoration? countryInputDecoration;
+  InputDecoration? stateInputDecoration;
+  InputDecoration? cityInputDecoration;
+  InputDecoration? searchInputDecoration;
+  Color? dialogBGColor;
 
-  CountryStateCityPicker({required this.country, required this.state, required this.city, this.textFieldInputBorder});
+  CountryStateCityPicker({required this.country, required this.state, required this.city, this.textFieldInputBorder,this.countryInputDecoration,this.stateInputDecoration,this.cityInputDecoration,this.searchInputDecoration,this.dialogBGColor});
 
   @override
   _CountryStateCityPickerState createState() => _CountryStateCityPickerState();
@@ -89,7 +94,7 @@ class _CountryStateCityPickerState extends State<CountryStateCityPicker> {
             setState(()=>_title='Country');
             _showDialog(context);
           },
-          decoration: InputDecoration(
+          decoration: (widget.countryInputDecoration!=null)?widget.countryInputDecoration:InputDecoration(
               isDense: true,
               hintText: 'Select Country',
               suffixIcon: Icon(Icons.arrow_drop_down),
@@ -108,7 +113,7 @@ class _CountryStateCityPickerState extends State<CountryStateCityPicker> {
             _showDialog(context);
             else _showSnackBar('Select Country');
           },
-          decoration: InputDecoration(
+          decoration: (widget.countryInputDecoration!=null)?widget.stateInputDecoration:InputDecoration(
               isDense: true,
               hintText: 'Select State',
               suffixIcon: Icon(Icons.arrow_drop_down),
@@ -127,7 +132,7 @@ class _CountryStateCityPickerState extends State<CountryStateCityPicker> {
               _showDialog(context);
             else _showSnackBar('Select State');
           },
-          decoration: InputDecoration(
+          decoration: (widget.countryInputDecoration!=null)?widget.cityInputDecoration:InputDecoration(
               isDense: true,
               hintText: 'Select City',
               suffixIcon: Icon(Icons.arrow_drop_down),
@@ -161,7 +166,7 @@ class _CountryStateCityPickerState extends State<CountryStateCityPicker> {
                   height: MediaQuery.of(context).size.height*.7,
                   margin: EdgeInsets.only(top: 60, left: 12, right: 12),
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: widget.dialogBGColor??Colors.white,
                     borderRadius: BorderRadius.circular(20),
                   ),
                   child: Column(
@@ -197,7 +202,7 @@ class _CountryStateCityPickerState extends State<CountryStateCityPicker> {
                             color: Colors.grey.shade800,
                             fontSize: 16.0
                         ),
-                        decoration: InputDecoration(
+                        decoration: (widget.countryInputDecoration!=null)?widget.searchInputDecoration:InputDecoration(
                             border: UnderlineInputBorder(),
                             hintText: "Search here...",
                             contentPadding: EdgeInsets.symmetric(vertical: 15,horizontal: 5),
